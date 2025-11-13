@@ -1,0 +1,181 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Ocean-inspired color palette */
+    --background: 210 45% 98%;
+    --foreground: 210 60% 20%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 210 60% 20%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 60% 20%;
+
+    /* Deep ocean blue */
+    --primary: 200 65% 45%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Turquoise */
+    --secondary: 180 55% 55%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 210 40% 94%;
+    --muted-foreground: 210 30% 50%;
+
+    /* Sand beige */
+    --accent: 40 50% 75%;
+    --accent-foreground: 210 60% 20%;
+
+    --destructive: 0 70% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 210 35% 88%;
+    --input: 210 35% 92%;
+    --ring: 200 65% 45%;
+
+    --radius: 1rem;
+
+    /* Ocean gradients */
+    --gradient-ocean: linear-gradient(135deg, hsl(200, 65%, 45%) 0%, hsl(180, 55%, 55%) 100%);
+    --gradient-ocean-deep: linear-gradient(180deg, hsl(200, 70%, 35%) 0%, hsl(200, 65%, 50%) 100%);
+    --gradient-sunset: linear-gradient(135deg, hsl(40, 75%, 65%) 0%, hsl(20, 80%, 60%) 50%, hsl(340, 70%, 60%) 100%);
+    --gradient-wave: linear-gradient(180deg, hsl(210, 45%, 98%) 0%, hsl(200, 55%, 92%) 100%);
+
+    /* Shadows */
+    --shadow-bottle: 0 8px 32px hsl(200 65% 45% / 0.2);
+    --shadow-float: 0 12px 40px hsl(200 65% 45% / 0.15);
+    --shadow-glow: 0 0 20px hsl(180 55% 55% / 0.3);
+
+    /* Animations */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .dark {
+    --background: 200 50% 8%;
+    --foreground: 210 40% 95%;
+
+    --card: 200 45% 12%;
+    --card-foreground: 210 40% 95%;
+
+    --popover: 200 45% 12%;
+    --popover-foreground: 210 40% 95%;
+
+    --primary: 180 55% 55%;
+    --primary-foreground: 200 50% 8%;
+
+    --secondary: 200 60% 40%;
+    --secondary-foreground: 210 40% 95%;
+
+    --muted: 200 40% 16%;
+    --muted-foreground: 210 30% 65%;
+
+    --accent: 40 45% 60%;
+    --accent-foreground: 200 50% 8%;
+
+    --destructive: 0 65% 50%;
+    --destructive-foreground: 210 40% 95%;
+
+    --border: 200 40% 20%;
+    --input: 200 40% 18%;
+    --ring: 180 55% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+}
+
+@layer utilities {
+  /* Ocean wave animations */
+  @keyframes wave {
+    0%, 100% { transform: translateY(0) translateX(0); }
+    25% { transform: translateY(-10px) translateX(5px); }
+    50% { transform: translateY(-5px) translateX(-5px); }
+    75% { transform: translateY(-15px) translateX(3px); }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(-2deg); }
+    50% { transform: translateY(-20px) rotate(2deg); }
+  }
+
+  @keyframes bubble-rise {
+    0% { transform: translateY(0) scale(1); opacity: 1; }
+    100% { transform: translateY(-100px) scale(0.8); opacity: 0; }
+  }
+
+  @keyframes ripple {
+    0% { transform: scale(1); opacity: 0.5; }
+    100% { transform: scale(2); opacity: 0; }
+  }
+
+  @keyframes shimmer {
+    0% { background-position: -1000px 0; }
+    100% { background-position: 1000px 0; }
+  }
+
+  .animate-wave {
+    animation: wave 3s ease-in-out infinite;
+  }
+
+  .animate-float {
+    animation: float 4s ease-in-out infinite;
+  }
+
+  .animate-bubble-rise {
+    animation: bubble-rise 3s ease-out forwards;
+  }
+
+  .animate-ripple {
+    animation: ripple 1s ease-out;
+  }
+
+  /* Gradient backgrounds */
+  .bg-ocean {
+    background: var(--gradient-ocean);
+  }
+
+  .bg-ocean-deep {
+    background: var(--gradient-ocean-deep);
+  }
+
+  .bg-sunset {
+    background: var(--gradient-sunset);
+  }
+
+  .bg-wave {
+    background: var(--gradient-wave);
+  }
+
+  /* Glass morphism effect for bottles */
+  .glass-bottle {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: var(--shadow-bottle);
+  }
+
+  /* Smooth transitions */
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+
+  .transition-bounce {
+    transition: var(--transition-bounce);
+  }
+}
