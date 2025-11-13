@@ -158,6 +158,15 @@ const Home = () => {
               </div>
             </div>
           </div>
+          <Card className="mt-16 p-6 text-center glass-bottle">
+            <h4 className="font-semibold text-foreground mb-3">Dibuat oleh:</h4>
+            <div className="space-y-1 text-muted-foreground text-sm">
+              <p>Ghina Luthfiyyah Arifah</p>
+              <p>Khansa Rafidah Gunawan</p>
+              <p>Salsabila Ramadhini</p>
+              <p>Nazwa Surya Akhila</p>
+            </div>
+          </Card>
         </main>
       </div>
     </div>
